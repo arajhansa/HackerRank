@@ -39,6 +39,16 @@ void printList(Node *head){
     printf("NULL\n");
 }
 
+int GetNode(Node *head, int positionFromTail){
+    Node *temp;
+    int count, position;
+    temp=head;
+    for(count=0; temp!=NULL; count++, temp = temp->next);
+    position = count - positionFromTail -1;
+    for(temp=head; position>0; position--, temp=temp->next);
+    return temp->data;
+}
+
 Node* MergeLists(Node *headA, Node *headB){
     Node *cur, *prev, *next, *tempA, *tempB;
     if(!headA){
@@ -114,15 +124,13 @@ int compare(Node *headA, Node *headB){
 
 int main(){
 
-    /*
     Node *head;
 
     head = insert(head);
     printList(head);
-    head = reverse(head);
-    printList(head);
-    */
+    printf("%d\n", GetNode(head, 2));
 
+    /*
     Node *nodeA, *nodeB, *merge;
 
     nodeA=NULL;
@@ -139,6 +147,7 @@ int main(){
 
 
     printList(merge);
+    */
 
     return 0;
 }
