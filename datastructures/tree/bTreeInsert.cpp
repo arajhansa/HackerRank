@@ -1,8 +1,10 @@
 node * insert(node * root, int value) {
     node *temp = root;
     node *newNode, *prev;
+    newNode = new node;
     newNode->data = value;
-    if (!root) {
+    newNode->left = newNode->right = NULL;
+    if (root==NULL) {
         return newNode;
     }
     prev = NULL;
@@ -15,7 +17,7 @@ node * insert(node * root, int value) {
         }
     }
     if (prev->data > value) {
-        prev->left = newNode; 
+        prev->left = newNode;
     } else {
         prev->right = newNode;
     }
